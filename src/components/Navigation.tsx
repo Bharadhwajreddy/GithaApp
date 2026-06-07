@@ -28,8 +28,13 @@ export default function Navigation({
       {/* Desktop Sidebar */}
       <aside className="hidden lg:block w-72 bg-sidebar-bg border-r border-border h-screen sticky top-0 overflow-hidden">
         <div className="p-4 border-b border-border">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">🙏</span>
+          <div className="flex items-center gap-3">
+            {/* Decorative Om icon */}
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-saffron/20 to-gold/10 flex items-center justify-center flex-shrink-0 border border-saffron/20">
+              <span className="text-xl leading-none text-saffron" style={{ fontFamily: "'Noto Sans Devanagari', sans-serif" }}>
+                ॐ
+              </span>
+            </div>
             <div>
               <h1 className="font-serif text-lg font-bold text-foreground">
                 Bhagavad Gita
@@ -39,6 +44,26 @@ export default function Navigation({
               </p>
             </div>
           </div>
+
+          {/* Progress indicator */}
+          {selectedChapter && (
+            <div className="mt-3">
+              <div className="flex items-center justify-between text-xs text-warm-gray mb-1.5">
+                <span>Reading progress</span>
+                <span className="text-saffron font-medium">
+                  {selectedChapter} / 18
+                </span>
+              </div>
+              <div className="w-full h-1.5 bg-border rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full rounded-full bg-gradient-to-r from-saffron to-gold"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${(selectedChapter / 18) * 100}%` }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                />
+              </div>
+            </div>
+          )}
         </div>
         <ChapterList
           chapters={chapters}
@@ -57,7 +82,11 @@ export default function Navigation({
             <Menu className="w-6 h-6" />
           </button>
           <div className="flex items-center gap-2">
-            <span className="text-xl">🙏</span>
+            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-saffron/20 to-gold/10 flex items-center justify-center border border-saffron/20">
+              <span className="text-sm leading-none text-saffron" style={{ fontFamily: "'Noto Sans Devanagari', sans-serif" }}>
+                ॐ
+              </span>
+            </div>
             <h1 className="font-serif text-base font-bold text-foreground">
               Bhagavad Gita
             </h1>
@@ -89,7 +118,11 @@ export default function Navigation({
             >
               <div className="flex items-center justify-between p-4 border-b border-border">
                 <div className="flex items-center gap-2">
-                  <BookOpen className="w-5 h-5 text-saffron" />
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-saffron/20 to-gold/10 flex items-center justify-center border border-saffron/20">
+                    <span className="text-base leading-none text-saffron" style={{ fontFamily: "'Noto Sans Devanagari', sans-serif" }}>
+                      ॐ
+                    </span>
+                  </div>
                   <span className="font-serif font-semibold">Chapters</span>
                 </div>
                 <button
@@ -99,6 +132,27 @@ export default function Navigation({
                   <X className="w-5 h-5" />
                 </button>
               </div>
+
+              {/* Mobile progress indicator */}
+              {selectedChapter && (
+                <div className="px-4 py-3 border-b border-border">
+                  <div className="flex items-center justify-between text-xs text-warm-gray mb-1.5">
+                    <span>Reading progress</span>
+                    <span className="text-saffron font-medium">
+                      {selectedChapter} / 18
+                    </span>
+                  </div>
+                  <div className="w-full h-1.5 bg-border rounded-full overflow-hidden">
+                    <motion.div
+                      className="h-full rounded-full bg-gradient-to-r from-saffron to-gold"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${(selectedChapter / 18) * 100}%` }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                    />
+                  </div>
+                </div>
+              )}
+
               <ChapterList
                 chapters={chapters}
                 selectedChapter={selectedChapter}
