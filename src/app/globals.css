@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #FFF9F0;
+  --foreground: #2D1810;
+  --saffron: #FF9933;
+  --saffron-light: #FFB366;
+  --saffron-dark: #E68A2E;
+  --gold: #FFD700;
+  --gold-dark: #B8960F;
+  --deep-red: #8B0000;
+  --cream: #FFF5E6;
+  --warm-gray: #6B5B4F;
+  --card-bg: #FFFFFF;
+  --sidebar-bg: #FFF5E6;
+  --border: #E8D5C0;
+}
+
+.dark {
+  --background: #1A1008;
+  --foreground: #F5E6D0;
+  --saffron: #FF9933;
+  --saffron-light: #CC7A29;
+  --saffron-dark: #FFB366;
+  --gold: #FFD700;
+  --gold-dark: #FFE44D;
+  --deep-red: #FF4444;
+  --cream: #2D1F10;
+  --warm-gray: #A89080;
+  --card-bg: #2A1D10;
+  --sidebar-bg: #231508;
+  --border: #3D2A18;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-saffron: var(--saffron);
+  --color-saffron-light: var(--saffron-light);
+  --color-saffron-dark: var(--saffron-dark);
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-deep-red: var(--deep-red);
+  --color-cream: var(--cream);
+  --color-warm-gray: var(--warm-gray);
+  --color-card-bg: var(--card-bg);
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-border: var(--border);
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+}
+
+.font-devanagari {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--saffron);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--saffron-dark);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.om-spinner {
+  display: inline-block;
+  font-size: 2rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
